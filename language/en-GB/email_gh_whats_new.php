@@ -19,4 +19,5 @@
 <li><span class='gh_date' >23 Jul 2012</span> : fixed bug with MX check, it was always applied</li>
 <li><span class='gh_date' >02 Aug 2012</span> : fixed bug with attachments to allow <tt>{xxx}. . .{yyy}</tt> in a file path</li>
 <li><span class='gh_date' >19 Oct 2012</span> : fixed bug with dynamic From Email including ##OK## in the email address</li>
+<li><span class='gh_date' >22 Oct 2012</span> : added the ability to attach multiple files from $form->data['file_array']</li>
 </ul>
