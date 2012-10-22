@@ -212,13 +212,22 @@ class CfactionEmailGH {
 				if ( !$v ) {
 					continue;
 				}
-				if ( substr( $v, 0, 1 ) == '{' && substr( $v, -1, 1 ) == '}' && strpos('{', $v, 1) === false) {
+				if ( $v == '{file_array}' && count($file_array) > 0 ) {
+					// handle the special 'file_array' value
+					foreach ( $this->data['file_array'] as $f ) {
+						if ( file_exists($f) ) {
+							$email_attachments[] = $f;
+						}
+					}
+				} else if ( substr( $v, 0, 1 ) == '{' && substr( $v, -1, 1 ) == '}' && strpos('{', $v, 1) === false) {
+					// handle uploaded files
 					$v = substr( $v, 1, strlen( $v ) - 2 );
 					$v = trim( $v );
 					if ( isset( $form->files[$v] ) ) {
 						$email_attachments[] = $form->files[$v]['path'];
 					}
 				} else {
+					// handle indivdual files
 					$v = str_replace( '{#path#}', JPATH_SITE, $v );
 					$v = $this->curlyReplacer( $v );
 					$v = str_replace( array(
