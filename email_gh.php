@@ -56,6 +56,7 @@ class CfactionEmailGH {
 			'recordip' => true,
 			'attachments' => '',
 			'sendas' => 'html',
+			'filter_body' => true,
 			'content1' => JText::_( 'CF_EM_GH_DEFAULT_TEMPLATE' )
 		);
 	}
@@ -139,7 +140,9 @@ class CfactionEmailGH {
 			if ( $temp ) {
 				$temp = "<!--{$temp}-->\n\n\n";
 			}
-			$email_body = $filter->clean( $email_body, 'HTML' );
+			if ( $filter_body ) {
+				$email_body = $filter->clean( $email_body, 'HTML' );
+			}
 			$temp .= "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">
 			<html>
 				<head>

@@ -14,6 +14,7 @@
             <p>File paths can use the <tt>{#path#}</tt> placeholder to shorten the path. This will be replaced by the path to the Joomla! root folder - see the help under the box for the current value.</p>
             <p>The special <tt>{file_array}</tt> entry will load one or more files from paths pre-defined in <tt>$form->data['file_array']</tt>.</p></li>
         <li>The Get Submitter's IP box will either attach the IP Adresss to the end of the email or replace any <tt>{IPADDRESS}</tt> placeholder in the email template.</li>
+        <li>The <b>Filter the email body</b> box is checked by default. It enables a filter of the email body HTML that will remove anything except text and basic HTML as a security check. It will remove any <tt>&lt;style&gt;</tt> tags so you will need to disable the filter if you need to include them. Styles added as attributes to the HTML e.g. s<tt>style="color: blue;"</tt> are not affected.</li>
     </ul>
     <h4>The Email Setup tab</h4>
     <ul>

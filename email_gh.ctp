@@ -140,6 +140,12 @@ if ( JFile::exists(JPATH_SITE.DS.'media'.DS.'editors'.DS.'tinymce'.DS.'jscripts'
 	/>
 	<input
 		type="hidden"
+		name="chronoaction[{n}][action_email_gh_{n}_filter_body]"
+		id="action_email_gh_{n}_filter_body"
+		value="<?php echo $action_params['filter_body']; ?>"
+	/>
+	<input
+		type="hidden"
 		name="chronoaction[{n}][action_email_gh_{n}_attachments]"
 		id="action_email_gh_{n}_attachments"
 		value="<?php echo $action_params['attachments']; ?>"
@@ -291,13 +297,22 @@ echo $HtmlHelper->input('action_'.$action_name.'_{n}_attachments_config',
 );
 echo $HtmlHelper->input('action_'.$action_name.'_{n}_recordip_config',
 	array(
-		'type' => 'select',
+		'type' => 'checkbox',
 		'label' => JText::_('CF_EM_GH_LABEL_RECORD_IP'),
-		'options' => array(
-			0 => JText::_('No'),
-			1 => JText::_('Yes')
-		),
+		'class' => 'checkbox',
+		'value' => '1',
+		'rule' => 'bool',
 		'smalldesc' => JText::_('CF_EM_GH_TIP_RECORD_IP')
+	)
+);
+echo $HtmlHelper->input('action_'.$action_name.'_{n}_filter_body_config',
+	array(
+		'type' => 'checkbox',
+		'label' => JText::_('CF_EM_GH_LABEL_FILTER_BODY'),
+		'class' => 'checkbox',
+		'value' => '1',
+		'rule' => 'bool',
+		'smalldesc' => JText::_('CF_EM_GH_TIP_FILTER_BODY')
 	)
 );
 echo $PluginTabsHelper->tabEnd();
