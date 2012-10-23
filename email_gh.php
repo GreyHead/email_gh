@@ -215,7 +215,7 @@ class CfactionEmailGH {
 				if ( !$v ) {
 					continue;
 				}
-				if ( $v == '{file_array}' && count($this->data['file_array']) > 0 ) {
+				if ( $v == '{file_array}' && isset($this->data['file_array']) && count($this->data['file_array']) > 0 ) {
 					// handle the special 'file_array' value
 					foreach ( $this->data['file_array'] as $f ) {
 						if ( file_exists($f) ) {
